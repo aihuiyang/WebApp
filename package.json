@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node app.js",
     "pretest": "eslint ./",
-    "test": "jest"
+    "test": "jest",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
