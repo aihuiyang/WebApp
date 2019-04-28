@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app" class="main">
+    <div class="row" >
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <a href="index.html">Home</a>
+        </li>
+        <li role="presentation" class="active">
+          <a href="#">info</a>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <div class="row">
+      <div class="item">
+        <h1 style="text-align: center">{{item.title}}</h1>
+        <p style="padding:10px;line-height: 20px;">
+          <img style="width: 100%;margin-bottom:10px;" :src="item.image"> {{item.text}}
+        </p>
+        <div class="item-ft">
+          <span class="line1">{{item.userName}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- commit -->
+    <h3>commits：</h3>
+    <div class="row" style="background-color: #fff;padding:0 15px;">
+      <div style="padding: 10px 0;border-bottom: 1px dotted #ccc;" v-for="item in list" class="media">
+        <div class="media-body">
+          <div style="line-height: 28px;font-size: 14px;">{{item.author}}</div>
+          <div style="line-height: 28px;font-size: 14px;">{{item.text}}</div>
+          <p style="    color: #999;font-size:12px">send {{item.time}}</p>
+        </div>
+      </div>
+    </div>
+    <button @click="showModal" id="add" type="button" class="btn btn-danger btn-block">+</button>
+    <!-- Modal -->
+    <div class="modal fade" style="background-color: rgba(0,0,0,.65)" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button @click="hideModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Add commit</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="text">commit text</label>
+              <input v-model="forms.text" type="text" class="form-control" id="text" placeholder="text">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button @click="hideModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button @click="submit" type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="bootstrap/js/jq.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/vue.js"></script>
+  <script src="lib/axios.js"></script>
+</body>
+<script>
+
+  new Vue({
+    el: "#app",
+    data: {
+      item: {},
+      title: "",
+      list: [],
+      forms: {
+        text: ""
+      }
+    },
+    created: function () {
+      this.getInfo()
+      this.getList()
+    },
+    methods: {
+      GetQueryString: function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if (r != null) return unescape(r[2]); return null;
+      },
+      showModal: function () {
+        $('#myModal').modal('show')
+      },
+      hideModal: function () {
+        $('#myModal').modal('hide')
+      },
+      getList: function () {
+        var vm = this
+        axios({
+          url: '/commit/list',
+          method: "post",
+          data: {
+            a_id: this.GetQueryString('id') || ""
+          }
+        }).then(function (res) {
+          vm.list = res.data
+        })
+      },
+      getInfo: function () {
+        var vm = this
+        axios({
+          url: '/article/info',
+          params: {
+            id: this.GetQueryString('id') || ""
+          }
+        }).then(function (res) {
+          vm.item = res.data
+        })
+      },
+      submit: function () {
+        var vm = this
+        if (!vm.forms.text) {
+
+          return alert('text cannot be empty')
+        }
+        axios({
+          url: '/commit/add',
+          method: "post",
+          data: {
+            text: this.forms.text,
+            a_id: this.GetQueryString('id') || ""
+          }
+        }).then(function (res) {
+          if (res.data.status === 401) {
+            window.location.href = "login.html"
+          }
+          vm.hideModal()
+          vm.getList()
+          vm.forms.text = ""
+        })
+      }
+
+    }
+  })
+</script>
+
+</html>

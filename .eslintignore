@@ -1,0 +1,6 @@
+model/
+public/
+node_modules/
+test/
+babel.config.js
+jest.config.js

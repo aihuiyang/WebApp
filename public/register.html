@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style/login.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="form">
+    <h3>Register</h3>
+    <input id="userName" type="text" placeholder="User Name" />
+    <input id="password1" type="password" placeholder="User Password" />
+    <input id="password2" type="password" placeholder="Confirm password" />
+    <button id="button" type="button" class="btn btn-danger btn-block">register</button>
+    <a href="/login.html" type="button" class="btn btn-danger btn-block">login</a>
+  </div>
+  <div id="toast" class="toast" style="display: none"></div>
+  <script src="bootstrap/js/jq.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/base.js"></script>
+  <script src="lib/axios.js"></script>
+  <script src="js/register.js"></script>
+</body>
+
+</html>
