@@ -1,20 +1,18 @@
-# README
+# **Second Programming Summative
+## *Traveling Blogs Web Application
 
-这是一个分享游记的应用，需要通过注册和登录，然后添加自己的游记文章，其他用户可以在这里评论，游记可以发布图片填写地址以便搜索
-This is an application mainly for sharing travel experience, register to see others' strories, add your owns and comment underneath a story. And you can search by typing in different address.
+### Overview
+This web application allows users to look up others' travel blogs by searching address.
+Users are allowed to regester, login account to comment others' blogs and write done their owns.
 
-# Getting Started
-
-Prequisites and Installation
+## Start Up
+### Prequisites and Installation
     Run 'npm install' under cmd for installing packages that you need.
     $ npm install
     $ npm start
-
-    Run 'npm run dev' to start the programme.
+### Run 'npm run dev' to start the programme.
     $ npm run dev
-
-在浏览器中打开 http://127.0.0.1:3000/login.html
-
+### And open a browser to get to http://127.0.0.1:3000/login.html
 
 # eslint
 

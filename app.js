@@ -192,7 +192,7 @@ app.post('/commit/delete', isLogin, function (req, res) {
 app.post('/file_upload', upload.single('file'), function (req, res) {
   const file = req.file;
 
-  res.json({ url: file.path.replace('uploads\\', '').replace('\\', "/").replace("temp", "") });
+  res.json({ url: file.filename });
 });
 
 const http = require('http');
