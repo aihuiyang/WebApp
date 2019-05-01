@@ -3,7 +3,7 @@
 
 ### Overview
 This web application allows users to look up others' travel blogs by searching address.
-Users are allowed to regester, login account to comment others' blogs and write done their owns.
+Users are allowed to register, login account to comment others' blogs and write done their owns.
 
 ## Start Up
 ### Prequisites and Installation
