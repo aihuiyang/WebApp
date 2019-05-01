@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <!-- commit -->
+    <!-- Comments -->
     <h3>comments：</h3>
     <div class="row" style="background-color: #fff;padding:0 15px;">
       <div style="padding: 10px 0;border-bottom: 1px dotted #ccc;" v-for="item in list" class="media">
@@ -53,11 +53,11 @@
             <button @click="hideModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="myModalLabel">Add commit</h4>
+            <h4 class="modal-title" id="myModalLabel">Add Comments</h4>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="text">commit text</label>
+              <label for="text">Comments text</label>
               <input v-model="forms.text" type="text" class="form-control" id="text" placeholder="text">
             </div>
           </div>
@@ -105,7 +105,7 @@
       getList: function () {
         var vm = this
         axios({
-          url: '/commit/list',
+          url: '/Comments/list',
           method: "post",
           data: {
             a_id: this.GetQueryString('id') || ""
@@ -132,7 +132,7 @@
           return alert('text cannot be empty')
         }
         axios({
-          url: '/commit/add',
+          url: '/Comments/add',
           method: "post",
           data: {
             text: this.forms.text,

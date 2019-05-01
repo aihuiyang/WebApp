@@ -20,9 +20,9 @@ ______
 ______
 ### Index Page
 It's a really simple, clear but full-functioned page:
-* Click the register and login buttom on the top left to create your personal account.
-* Click the red buttom  to add address, title, images and content. 
-* To comment under others' blogs, ( this bit is a bit doddgy, but I have no idea 
+* Click the register and login botton on the top left to create your personal account.
+* Click the red botton  to add address, title, images and content. 
+* To comment under others' blogs, ( this bit is a bit doddgy) click the same botton at the buttom after enterying the 
 ______
 ## Testing
 ### eslint
