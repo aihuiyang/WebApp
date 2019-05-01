@@ -160,7 +160,7 @@ app.post('/article/delete', isLogin, function (req, res) {
   });
 });
 
-app.post('/commit/add', isLogin, function (req, res) {
+app.post('/comments/add', isLogin, function (req, res) {
   req.body.userId = req.session.user._id;
   req.body.author = req.session.user.userName;
   var d = new Date()
@@ -168,7 +168,7 @@ app.post('/commit/add', isLogin, function (req, res) {
     return i > 9 ? i : `0${i}`
   }
   req.body.time = [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-') + " " + [getText(d.getHours()), getText(d.getMinutes())].join(":")
-  DB.CommitDB.insert(req.body, (err, ret) => {
+  DB.commentsDB.insert(req.body, (err, ret) => {
     if (err) {
       res.status(500).end(err);
     } else {
@@ -177,15 +177,15 @@ app.post('/commit/add', isLogin, function (req, res) {
   });
 });
 
-app.post('/commit/list', isLogin, function (req, res) {
-  DB.CommitDB.find({ a_id: req.body.a_id })
+app.post('/comments/list', isLogin, function (req, res) {
+  DB.commentsDB.find({ a_id: req.body.a_id })
     .exec((err, ret) => {
       res.json(ret);
     });
 });
 
-app.post('/commit/delete', isLogin, function (req, res) {
-  DB.CommitDB.remove({ _id: req.body._id }, (err, ret) => {
+app.post('/comments/delete', isLogin, function (req, res) {
+  DB.commentsDB.remove({ _id: req.body._id }, (err, ret) => {
     res.json(ret);
   });
 });

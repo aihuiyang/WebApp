@@ -4,8 +4,8 @@ module.exports = {
     filename: './model/article.db',
     autoload: true,
   }),
-  CommitDB: new nedb({
-    filename: './model/commit.db',
+  CommentsDB: new nedb({
+    filename: './model/Comments.db',
     autoload: true,
   }),
   UserDB: new nedb({
