@@ -20,12 +20,12 @@ ______
 ______
 ### Index Page
 It's a really simple, clear but full-functioned page:
-* Click the register and login botton on the top left to create your personal account.
+* Click the register and login button on the top left to create your personal account.
 
-* Click the red botton  to add address, title, images and content. 
+* Click the red button  to add address, title, images and content. 
 
 * To comment under others' blogs, click the same botton at the buttom after enterying the blog you wanna comment on, ( this bit is a bit doddgy) press the bottom button to add comments instead of clicking the white blank coming after "Comments".
-* There are two bottons on top left which can be pressed to switch between home page and info page (information about the blog you are interested in.
+* There are two buttons on top left which can be pressed to switch between home page and info page (information about the blog you are interested in.
 
 ______
 ## Testing
