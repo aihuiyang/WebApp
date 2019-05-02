@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node app.js",
-    "pretest": "eslint ./",
+    "dev": "node service.js",
     "test": "jest",
+    "pretest": "eslint ./",
     "start": "node app.js"
   },
   "author": "",
@@ -20,7 +20,8 @@
     "express-session": "^1.15.6",
     "jest": "^24.7.1",
     "multer": "^1.4.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

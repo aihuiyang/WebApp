@@ -195,13 +195,6 @@ app.post('/file_upload', upload.single('file'), function (req, res) {
   res.json({ url: file.filename });
 });
 
-const http = require('http');
-const PORT = process.env.PORT || 3000;
+module.exports = app
 
-http.createServer(app).listen(PORT, function (err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('HTTP server on http://localhost:%s', PORT);
-  }
-});
+
