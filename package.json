@@ -7,7 +7,7 @@
     "dev": "node service.js",
     "test": "jest",
     "pretest": "eslint ./",
-    "start": "node app.js"
+    "start": "node service.js"
   },
   "author": "",
   "license": "ISC",
